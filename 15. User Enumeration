@@ -1,0 +1,14 @@
+#get all domain users
+Get-DomainUser
+
+#get info on user
+Get-DomainUser -Name jenkinsadmn
+
+#service accounts get SPNs for Kerberoast
+Get-DomainUser -SPN
+
+#get domain users and column memberof
+Get-DomainUser -Properties samaccountname,memberof
+
+#get domain users and column description for potential passwords
+Get-DomainUser -Properties samaccountname,description
