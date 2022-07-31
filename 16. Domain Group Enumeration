@@ -1,1 +1,11 @@
-test
+# list computers or servers connected to this domain
+Get-DomainComputer
+
+# list servers with keyword 2016 in operatingsystem field, the older the better for exploits
+Get-DomainComputer -OperatingSystem "2016"
+
+# ping, text connection
+Get-DomainComputer -Ping
+
+# ping, text connection
+Get-DomainComputer -Name WEB.pentesting.local # [dnshostname field]
