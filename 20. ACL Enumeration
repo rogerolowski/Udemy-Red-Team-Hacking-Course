@@ -2,10 +2,20 @@
 Get-DomainUser -Name student1
 
 # Get ACL
-Get-ObjectAcl -Samaccountname student1 -ResolveGUIDS
+Get-ObjectAcl -SamAccountName student1 -ResolveGUIDS
 
 # who has access for domain admins , look GenericAll
-Get-ObjectAcl -Samaccountname 'Domain Admins' -ResolveGUIDS
+Get-ObjectAcl -SamAccountName 'Domain Admins' -ResolveGUIDS
 
 # info
 Get-DomainGroup -Name 'Domain Admins'
+
+
+Get-ObjectAcl -SamAccountName * -ResolveGUIDs | ? {
+    ($_.ActiveDirectoryRights -match 'GenericAll') -or ($_.SecurityIdentifier -match '5-1-5-XXXX)
+}
+
+Get-ObjectAcl -SamAccountName 'Domain Admins' -ResolveGUIDs | ? {
+    ($_.ActiveDirectoryRights -match 'GenericAll') -or ($_.SecurityIdentifier -match '5-1-5-XXXX)
+}
+
