@@ -12,3 +12,12 @@ Get-DomainUser -Properties samaccountname,memberof
 
 #get domain users and column description for potential passwords
 Get-DomainUser -Properties samaccountname,description
+
+#get all domain admins
+Get-DomainGroupMember -Name "Domain Admins"
+
+#get all domain admins , pulls users out of groups, when member is a group
+Get-DomainGroupMember -Name "Domain Admins" -Recurse
+
+#list all groups for a user
+Get-DomainGroup -username jenkinsadmin
