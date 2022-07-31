@@ -1,1 +1,9 @@
-test
+# powershell script for AD recon
+ADRecon - https://github.com/adrecon/ADRecon
+
+# bypass exe policy
+powershell -ep bypass
+
+# start AD Recon
+.\ADRecon.ps1 -OutputDir ALL-ADRecon -OutputType HTML
+
