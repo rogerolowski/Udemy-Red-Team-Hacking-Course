@@ -1,0 +1,11 @@
+# # access info
+Get-DomainUser -Name student1
+
+# Get ACL
+Get-ObjectAcl -Samaccountname student1 -ResolveGUIDS
+
+# who has access for domain admins , look GenericAll
+Get-ObjectAcl -Samaccountname 'Domain Admins' -ResolveGUIDS
+
+# info
+Get-DomainGroup -Name 'Domain Admins'
