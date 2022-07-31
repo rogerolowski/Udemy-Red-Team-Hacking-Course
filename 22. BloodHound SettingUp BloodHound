@@ -1,0 +1,26 @@
+Download Bloodhound GUI
+https://github.com/BloodHoundAD/BloodHound/releases
+
+Download and install Java
+https://www.java.com/en/download/
+
+Download JDK
+https://jdk.java.net/archive/
+setx -m JAVA_HOME "C:\AD\Bloodhound\jdk-11.0.9"
+
+Download Neoj4
+https://neo4j.com/download-center/#community
+neo4j.bat install-service
+neo4j-admin set-initial-password yourpasswordhere
+neo4j.bat start
+neo4j.bat stop
+Download SharpHound
+
+
+https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors
+powershell -ep bypass
+import-module .\SharpHound.ps1
+Invoke-BloodHound -CollectionMethod All -Verbose -Domain pentesting
+
+BloodHound Website
+https://bloodhound.readthedocs.io/en/latest/index.html
