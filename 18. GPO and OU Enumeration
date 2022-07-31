@@ -1,1 +1,23 @@
-test
+# get group policy info
+Get-DomainGPO
+
+# get group policy info
+Get-DomainGPO | Select displayname #field
+
+hostname
+# ComputerName
+
+# get group policy info
+Get-DomainGPO -ComputerName student
+
+# get domain info , what domains user is part of
+Get-Domain
+
+# get forest info
+Get-ForestGlobalCatalog
+
+# enum OUs
+Get-DomainOU
+
+# 
+Get-DomainGPO -Name testing or "324324" # use displayname or name fields , name field need to be in quotes
