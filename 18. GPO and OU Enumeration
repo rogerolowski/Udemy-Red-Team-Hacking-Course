@@ -19,5 +19,5 @@ Get-ForestGlobalCatalog
 # enum OUs
 Get-DomainOU
 
-# 
+# for a particular group policy
 Get-DomainGPO -Name testing or "324324" # use displayname or name fields , name field need to be in quotes
