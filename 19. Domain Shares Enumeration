@@ -1,1 +1,16 @@
-test
+# get info on user
+Get-DomainUser -Name ippsec
+
+# more info
+Get-DomainGroup -samaccountname test
+
+# looks for sensitive files
+Invoke-FileFinder -Verbose
+
+type \\fileshare.pentesting.local\Fileshare\secret.txt
+
+# find domain server
+Get-DomainFileServer -Verbose
+
+# find domain share
+Get-DomainFileShare -Verbose
